@@ -715,7 +715,7 @@ wheels = [
 
 [[package]]
 name = "pyrig"
-version = "18.94.1"
+version = "18.94.2"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "inquirerpy" },
@@ -727,9 +727,9 @@ dependencies = [
     { name = "tomli-w" },
     { name = "typer" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/78/3f/223bda1130c870d7fc21d473d4850fb086f3962ea8ec52adc102865705aa/pyrig-18.94.1.tar.gz", hash = "sha256:f99218d8307ed16bc3ef7f758ed343273b9b1b8d314981c9a5f2474997c86727", size = 106052, upload-time = "2026-10-01T15:49:59.352Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/ef/d1/1fdfb5f5ed860ede847e42425a07a6490980a188332d1487805952be689f/pyrig-18.94.2.tar.gz", hash = "sha256:adc7808e73c25fa9adcdf8bba7c824f9c129d4667911a99f641e5054bb879a57", size = 105954, upload-time = "2026-10-01T17:42:23.141Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/cd/9a/679cf0f208aac3b7567ff2c63e046e483cf106fa6eebd4eb1d42cd8f4b44/pyrig-18.94.1-py3-none-any.whl", hash = "sha256:ecbea65dd25af516f73c2d4cbe7f9bb3093e98b4627f2892acf5904353c3adaa", size = 170712, upload-time = "2026-10-01T15:49:56.629Z" },
+    { url = "https://files.pythonhosted.org/packages/45/e0/df900f0b45b8d227bdf02236ab667f44b990603ecda6ac6d7142344933f5/pyrig-18.94.2-py3-none-any.whl", hash = "sha256:ebbaf415c7f638f858636c8255b1772f21f4542b06cdf0c5c887fccd7f94cc56", size = 170596, upload-time = "2026-10-01T17:42:21.317Z" },
 ]
 
 [[package]]
@@ -776,7 +776,7 @@ wheels = [
 
 [[package]]
 name = "pyrig-public"
-version = "1.0.1"
+version = "1.0.2"
 source = { editable = "." }
 dependencies = [
     { name = "pyrig" },
@@ -797,6 +797,7 @@ dev = [
     { name = "pyrig-codecov" },
     { name = "pyrig-codeql" },
     { name = "pyrig-fixtures" },
+    { name = "pyrig-public" },
     { name = "pyrig-pypi" },
     { name = "pytest" },
     { name = "pytest-cov" },
@@ -834,6 +835,7 @@ dev = [
     { name = "pyrig-codecov", specifier = ">=3.17.45" },
     { name = "pyrig-codeql", specifier = ">=1.1.10" },
     { name = "pyrig-fixtures", specifier = ">=2.25.2" },
+    { name = "pyrig-public", editable = "." },
     { name = "pyrig-pypi", specifier = ">=3.20.46" },
     { name = "pytest", specifier = ">=9.1.1" },
     { name = "pytest-cov", specifier = ">=7.1.0" },
