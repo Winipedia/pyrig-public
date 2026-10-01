@@ -91,5 +91,5 @@ private channel instead of directing them to public issues or discussions.
 
 ## API reference
 
-For class- and method-level details, see the [API reference](api.md), generated
-automatically from the source.
+Running `pyrig sync` generates the [API reference](api.md) from the package's
+public Python docstrings. For class- and method-level details, see that page.

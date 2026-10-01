@@ -58,6 +58,8 @@ configures GitHub features for public repositories.
   external contributors' forks can run.
 - **Private vulnerability reporting** — enables GitHub's private reporting
   form and links to it from the generated security policy.
+- **API reference** — generates `docs/api.md` from the package's public Python
+  docstrings.
 
 ## Usage
 
@@ -66,8 +68,10 @@ uv add pyrig-public --dev
 uv run pyrig sync
 ```
 
-Applying the generated repository settings makes the repository public. Review
-its contents and GitHub's visibility-change consequences before applying them.
+This generates the plugin's configuration overrides and the `docs/api.md` API
+reference page. Applying the generated repository settings makes the repository
+public. Review its contents and GitHub's visibility-change consequences before
+applying them.
 
 ## Documentation
 
