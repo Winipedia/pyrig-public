@@ -42,6 +42,54 @@
 
 ---
 
-> Add your description here
+> A pyrig plugin for public repository functionality.
 
 ---
+
+## Overview
+
+`pyrig-public` extends pyrig's generated GitHub configuration with settings
+and policies intended for public repositories. Install the plugin as a
+development dependency, then run `pyrig sync`; pyrig discovers and applies the
+plugin overrides automatically.
+
+```bash
+uv add pyrig-public --dev
+uv run pyrig sync
+```
+
+This regenerates the local configuration files. GitHub is updated when the
+generated `.github/configure.sh` runs, such as in pyrig's deployment workflow.
+
+## Repository visibility
+
+The plugin adds `"visibility": "public"` to the generated repository settings.
+When `.github/configure.sh` applies those settings, GitHub updates the
+repository through its repository settings API. This is enforced each time the
+configuration script runs.
+
+!!! warning "Important"
+    Changing a repository's visibility can expose its code and history. GitHub
+    also warns that visibility changes can affect stars and watchers, detach
+    public forks, disable push rulesets, and make Actions history and logs
+    accessible. Confirm the repository contents and any organization visibility
+    policy before applying the setting.
+
+## Fork pull request workflows
+
+The generated configuration requires maintainer approval before workflows
+from pull requests opened by external contributors' forks run. The policy is
+set to `all_external_contributors` through GitHub's fork pull request approval
+settings.
+
+## Vulnerability reporting
+
+The plugin enables GitHub private vulnerability reporting for the repository.
+It also changes the generated `SECURITY.md` reporting instructions to link to
+the repository's private vulnerability reporting form. This gives reporters a
+private channel instead of directing them to public issues or discussions.
+
+## API reference
+
+For class- and method-level details, see the [API reference](api.md), generated
+automatically from the source.

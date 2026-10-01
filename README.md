@@ -42,6 +42,34 @@
 
 ---
 
-> Add your description here
+> A pyrig plugin for public repository functionality.
 
 ---
+
+## Overview
+
+`pyrig-public` is a [pyrig](https://github.com/Winipedia/pyrig) plugin that
+configures GitHub features for public repositories.
+
+## What it adds
+
+- **Public visibility** — configures the repository to be public.
+- **Fork pull request approval** — requires approval before workflows from
+  external contributors' forks can run.
+- **Private vulnerability reporting** — enables GitHub's private reporting
+  form and links to it from the generated security policy.
+
+## Usage
+
+```bash
+uv add pyrig-public --dev
+uv run pyrig sync
+```
+
+Applying the generated repository settings makes the repository public. Review
+its contents and GitHub's visibility-change consequences before applying them.
+
+## Documentation
+
+See the [documentation site](https://Winipedia.github.io/pyrig-public) for
+configuration details and the [API reference](https://Winipedia.github.io/pyrig-public/api/).

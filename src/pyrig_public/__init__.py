@@ -1,1 +1,1 @@
-"""The top-level package for the project."""
+"""Public-repository extensions for pyrig."""

@@ -1,14 +1,15 @@
 {
   "repository": {
     "name": "pyrig-public",
-    "description": "Add your description here",
+    "description": "A pyrig plugin for public repository functionality.",
     "homepage": "https://Winipedia.github.io/pyrig-public",
     "default_branch": "main",
     "delete_branch_on_merge": true,
     "allow_update_branch": true,
     "allow_merge_commit": false,
     "allow_rebase_merge": true,
-    "allow_squash_merge": true
+    "allow_squash_merge": true,
+    "visibility": "public"
   },
   "rulesets": [
     {
@@ -104,10 +105,10 @@
       ]
     }
   ],
-  "fork_pr_contributor_approval": {
-    "approval_policy": "all_external_contributors"
-  },
   "topics": [
     "pyrig"
-  ]
+  ],
+  "fork_pr_contributor_approval": {
+    "approval_policy": "all_external_contributors"
+  }
 }
