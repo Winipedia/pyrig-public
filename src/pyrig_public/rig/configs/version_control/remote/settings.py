@@ -10,14 +10,14 @@ from pyrig.rig.configs.version_control.remote.settings import (
 class RepositorySettingsConfigFile(BaseRepositorySettingsConfigFile):
     """Override repository settings for public GitHub repositories."""
 
-    def _configs(self) -> dict[str, Any]:
+    def settings(self) -> dict[str, Any]:
         """Add public visibility and fork-PR approval to the base settings.
 
         Returns:
             The inherited settings with public visibility and approval
             required for external contributors' fork pull request workflows.
         """
-        configs = super()._configs()
+        configs = super().settings()
         configs[self.repository_key()]["visibility"] = self.visibility()
         configs[self.fork_pr_contributor_approval_key()] = {
             "approval_policy": self.fork_pr_contributor_approval_policy(),

@@ -8,10 +8,10 @@ from pyrig_public.rig.configs.version_control.remote.settings import (
 class TestRepositorySettingsConfigFile:
     """Test class."""
 
-    def test__configs(self) -> None:
+    def test_settings(self) -> None:
         """Test method."""
         settings = RepositorySettingsConfigFile.I
-        configs = settings.configs()
+        configs = settings.settings()
         key = settings.fork_pr_contributor_approval_key()
         repository_key = settings.repository_key()
         assert configs[repository_key]["visibility"] == settings.visibility()
