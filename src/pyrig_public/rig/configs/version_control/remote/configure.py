@@ -50,11 +50,11 @@ class ConfigureRepositoryConfigFile(BaseConfigureRepositoryConfigFile):
             method="PUT",
             input_="-",
         )
-        return f"""{self.fork_pr_contributor_approval_function()}() {{
+        return f"""{self.fork_pr_contributor_approval_func()}() {{
   jq '.{key}' {settings_path} | {api_call}
 }}"""
 
-    def fork_pr_contributor_approval_function(self) -> str:
+    def fork_pr_contributor_approval_func(self) -> str:
         """Return `RepositorySettingsConfigFile.I.fork_pr_contributor_approval_key()`.
 
         Named identically to the settings file key it reads, so both stay
@@ -76,10 +76,10 @@ class ConfigureRepositoryConfigFile(BaseConfigureRepositoryConfigFile):
             endpoint=endpoint,
             method="PUT",
         )
-        return f"""{self.vulnerability_reporting_function()}() {{
+        return f"""{self.vulnerability_reporting_func()}() {{
   {api_call}
 }}"""
 
-    def vulnerability_reporting_function(self) -> str:
+    def vulnerability_reporting_func(self) -> str:
         """Return `"vulnerability_reporting"`, the function name."""
         return "vulnerability_reporting"

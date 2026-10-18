@@ -38,10 +38,10 @@ class TestConfigureRepositoryConfigFile:
         assert "--method=PUT" in result
         assert "--input=-" in result
 
-    def test_fork_pr_contributor_approval_function(self) -> None:
+    def test_fork_pr_contributor_approval_func(self) -> None:
         """Test method."""
         assert (
-            ConfigureRepositoryConfigFile.I.fork_pr_contributor_approval_function()
+            ConfigureRepositoryConfigFile.I.fork_pr_contributor_approval_func()
             == RepositorySettingsConfigFile.I.fork_pr_contributor_approval_key()
         )
 
@@ -53,9 +53,9 @@ class TestConfigureRepositoryConfigFile:
         assert "private-vulnerability-reporting" in result
         assert "--method=PUT" in result
 
-    def test_vulnerability_reporting_function(self) -> None:
+    def test_vulnerability_reporting_func(self) -> None:
         """Test method."""
         assert (
-            ConfigureRepositoryConfigFile.I.vulnerability_reporting_function()
+            ConfigureRepositoryConfigFile.I.vulnerability_reporting_func()
             == "vulnerability_reporting"
         )
