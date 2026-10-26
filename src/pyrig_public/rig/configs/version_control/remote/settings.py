@@ -18,7 +18,7 @@ class RepositorySettingsConfigFile(BaseRepositorySettingsConfigFile):
             required for external contributors' fork pull request workflows.
         """
         configs = super().settings()
-        configs[self.repository_key()]["visibility"] = self.visibility()
+        configs[self.repo_key()]["visibility"] = self.visibility()
         configs[self.fork_pr_contributor_approval_key()] = {
             "approval_policy": self.fork_pr_contributor_approval_policy(),
         }

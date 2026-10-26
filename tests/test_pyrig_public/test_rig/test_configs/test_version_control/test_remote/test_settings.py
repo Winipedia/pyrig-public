@@ -13,8 +13,8 @@ class TestRepositorySettingsConfigFile:
         settings = RepositorySettingsConfigFile.I
         configs = settings.settings()
         key = settings.fork_pr_contributor_approval_key()
-        repository_key = settings.repository_key()
-        assert configs[repository_key]["visibility"] == settings.visibility()
+        repo_key = settings.repo_key()
+        assert configs[repo_key]["visibility"] == settings.visibility()
         assert configs[key] == {
             "approval_policy": settings.fork_pr_contributor_approval_policy(),
         }
