@@ -1,6 +1,7 @@
 """Configuration manager for the API reference documentation page."""
 
 from pathlib import Path
+from typing import override
 
 from pyrig.rig.configs.base.markdown import MarkdownConfigFile
 from pyrig.rig.tools.docs.builder import DocsBuilder
@@ -17,6 +18,7 @@ class APIDocsConfigFile(MarkdownConfigFile):
     public members, their signatures, docstrings, and source code.
     """
 
+    @override
     def content(self) -> str:
         """Return the Markdown content for the API reference page."""
         return f"""# API
@@ -24,10 +26,12 @@ class APIDocsConfigFile(MarkdownConfigFile):
 ::: {PackageManager.I.package_name()}
 """
 
+    @override
     def parent_path(self) -> Path:
         """Return the `DocsBuilder`'s documentation source directory."""
         return DocsBuilder.I.docs_dir()
 
+    @override
     def stem(self) -> str:
         """Return the filename stem `"api"`."""
         return "api"

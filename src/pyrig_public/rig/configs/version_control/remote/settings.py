@@ -1,6 +1,6 @@
 """Repository-level settings and protection ruleset configuration for GitHub."""
 
-from typing import Any
+from typing import Any, override
 
 from pyrig.rig.configs.version_control.remote.settings import (
     RepositorySettingsConfigFile as BaseRepositorySettingsConfigFile,
@@ -10,6 +10,7 @@ from pyrig.rig.configs.version_control.remote.settings import (
 class RepositorySettingsConfigFile(BaseRepositorySettingsConfigFile):
     """Override repository settings for public GitHub repositories."""
 
+    @override
     def settings(self) -> dict[str, Any]:
         """Add public visibility and fork-PR approval to the base settings.
 

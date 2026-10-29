@@ -1,5 +1,7 @@
 """Shell script that applies repository configuration via the GitHub CLI."""
 
+from typing import override
+
 from pyrig.rig.configs.version_control.remote.configure import (
     ConfigureRepositoryConfigFile as BaseConfigureRepositoryConfigFile,
 )
@@ -18,6 +20,7 @@ class ConfigureRepositoryConfigFile(BaseConfigureRepositoryConfigFile):
     vulnerability reporting.
     """
 
+    @override
     def scripts(self) -> tuple[str, ...]:
         """Return base scripts and the public-repository policy scripts.
 
@@ -54,14 +57,6 @@ class ConfigureRepositoryConfigFile(BaseConfigureRepositoryConfigFile):
   jq '.{key}' {settings_path} | {api_call}
 }}"""
 
-    def fork_pr_contributor_approval_func(self) -> str:
-        """Return `RepositorySettingsConfigFile.I.fork_pr_contributor_approval_key()`.
-
-        Named identically to the settings file key it reads, so both stay
-        in sync automatically.
-        """
-        return RepositorySettingsConfigFile.I.fork_pr_contributor_approval_key()
-
     def vulnerability_reporting_script(self) -> str:
         """Return the `vulnerability_reporting` shell function.
 
@@ -79,6 +74,14 @@ class ConfigureRepositoryConfigFile(BaseConfigureRepositoryConfigFile):
         return f"""{self.vulnerability_reporting_func()}() {{
   {api_call}
 }}"""
+
+    def fork_pr_contributor_approval_func(self) -> str:
+        """Return `RepositorySettingsConfigFile.I.fork_pr_contributor_approval_key()`.
+
+        Named identically to the settings file key it reads, so both stay
+        in sync automatically.
+        """
+        return RepositorySettingsConfigFile.I.fork_pr_contributor_approval_key()
 
     def vulnerability_reporting_func(self) -> str:
         """Return `"vulnerability_reporting"`, the function name."""

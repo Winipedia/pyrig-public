@@ -3,6 +3,8 @@
 Manages SECURITY.md, the project's vulnerability-reporting policy.
 """
 
+from typing import override
+
 from pyrig.rig.configs.community.security import (
     SecurityConfigFile as BaseSecurityConfigFile,
 )
@@ -15,6 +17,7 @@ from pyrig_public.rig.tools.version_control.remote.controller import (
 class SecurityConfigFile(BaseSecurityConfigFile):
     """Override the default security policy for public repositories."""
 
+    @override
     def reporting_method(self) -> str:
         """Return a Markdown link to the repository's private reporting form.
 

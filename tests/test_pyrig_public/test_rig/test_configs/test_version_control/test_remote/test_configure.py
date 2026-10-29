@@ -15,13 +15,11 @@ from pyrig_public.rig.configs.version_control.remote.settings import (
 class TestConfigureRepositoryConfigFile:
     """Test class."""
 
-    def test_scripts(self) -> None:
+    def test_fork_pr_contributor_approval_func(self) -> None:
         """Test method."""
-        script = ConfigureRepositoryConfigFile.I
-        assert script.scripts() == (
-            *BaseConfigureRepositoryConfigFile().scripts(),
-            script.fork_pr_contributor_approval_script(),
-            script.vulnerability_reporting_script(),
+        assert (
+            ConfigureRepositoryConfigFile.I.fork_pr_contributor_approval_func()
+            == RepositorySettingsConfigFile.I.fork_pr_contributor_approval_key()
         )
 
     def test_fork_pr_contributor_approval_script(self) -> None:
@@ -38,11 +36,20 @@ class TestConfigureRepositoryConfigFile:
         assert "--method=PUT" in result
         assert "--input=-" in result
 
-    def test_fork_pr_contributor_approval_func(self) -> None:
+    def test_scripts(self) -> None:
+        """Test method."""
+        script = ConfigureRepositoryConfigFile.I
+        assert script.scripts() == (
+            *BaseConfigureRepositoryConfigFile().scripts(),
+            script.fork_pr_contributor_approval_script(),
+            script.vulnerability_reporting_script(),
+        )
+
+    def test_vulnerability_reporting_func(self) -> None:
         """Test method."""
         assert (
-            ConfigureRepositoryConfigFile.I.fork_pr_contributor_approval_func()
-            == RepositorySettingsConfigFile.I.fork_pr_contributor_approval_key()
+            ConfigureRepositoryConfigFile.I.vulnerability_reporting_func()
+            == "vulnerability_reporting"
         )
 
     def test_vulnerability_reporting_script(self) -> None:
@@ -52,10 +59,3 @@ class TestConfigureRepositoryConfigFile:
         assert result.startswith("vulnerability_reporting() {")
         assert "private-vulnerability-reporting" in result
         assert "--method=PUT" in result
-
-    def test_vulnerability_reporting_func(self) -> None:
-        """Test method."""
-        assert (
-            ConfigureRepositoryConfigFile.I.vulnerability_reporting_func()
-            == "vulnerability_reporting"
-        )
