@@ -1,6 +1,6 @@
 [project]
 name = "pyrig-public"
-version = "1.4.16"
+version = "1.4.17"
 description = "A pyrig plugin for public repository functionality."
 readme = "README.md"
 requires-python = ">=3.12"
@@ -128,6 +128,7 @@ strict = true
 [tool.ryl.lint.rules]
 ALL = "enable"
 key-ordering = "disable"
+yaml-directive = "disable"
 
 [tool.vulture]
 paths = [
