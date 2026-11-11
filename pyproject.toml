@@ -1,6 +1,6 @@
 [project]
 name = "pyrig-public"
-version = "1.4.56"
+version = "1.4.57"
 description = "A pyrig plugin for public repository functionality."
 readme = "README.md"
 requires-python = ">=3.12"
@@ -27,7 +27,7 @@ classifiers = [
   "Typing :: Typed",
 ]
 dependencies = [
-  "pyrig>=19.2.0",
+  "pyrig>=19.29.0",
 ]
 
 [project.urls]
