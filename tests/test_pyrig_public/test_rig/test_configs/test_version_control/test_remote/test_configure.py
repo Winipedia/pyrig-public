@@ -15,13 +15,6 @@ from pyrig_public.rig.configs.version_control.remote.settings import (
 class TestConfigureRepositoryConfigFile:
     """Test class."""
 
-    def test_fork_pr_contributor_approval_func(self) -> None:
-        """Test method."""
-        assert (
-            ConfigureRepositoryConfigFile.I.fork_pr_contributor_approval_func()
-            == RepositorySettingsConfigFile.I.fork_pr_contributor_approval_key()
-        )
-
     def test_fork_pr_contributor_approval_script(self) -> None:
         """Test method."""
         script = ConfigureRepositoryConfigFile.I
@@ -36,6 +29,20 @@ class TestConfigureRepositoryConfigFile:
         assert "--method=PUT" in result
         assert "--input=-" in result
 
+    def test_func_fork_pr_contributor_approval(self) -> None:
+        """Test method."""
+        assert (
+            ConfigureRepositoryConfigFile.I.func_fork_pr_contributor_approval()
+            == RepositorySettingsConfigFile.I.fork_pr_contributor_approval_key()
+        )
+
+    def test_func_vulnerability_reporting(self) -> None:
+        """Test method."""
+        assert (
+            ConfigureRepositoryConfigFile.I.func_vulnerability_reporting()
+            == "vulnerability_reporting"
+        )
+
     def test_scripts(self) -> None:
         """Test method."""
         script = ConfigureRepositoryConfigFile.I
@@ -43,13 +50,6 @@ class TestConfigureRepositoryConfigFile:
             *BaseConfigureRepositoryConfigFile().scripts(),
             script.fork_pr_contributor_approval_script(),
             script.vulnerability_reporting_script(),
-        )
-
-    def test_vulnerability_reporting_func(self) -> None:
-        """Test method."""
-        assert (
-            ConfigureRepositoryConfigFile.I.vulnerability_reporting_func()
-            == "vulnerability_reporting"
         )
 
     def test_vulnerability_reporting_script(self) -> None:
