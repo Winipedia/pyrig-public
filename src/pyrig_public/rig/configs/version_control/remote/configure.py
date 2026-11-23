@@ -5,10 +5,13 @@ from typing import override
 from pyrig.rig.configs.version_control.remote.configure import (
     ConfigureRepositoryConfigFile as BaseConfigureRepositoryConfigFile,
 )
+from pyrig.rig.configs.version_control.remote.settings import (
+    RepositorySettingsConfigFile,
+)
 from pyrig.rig.tools.version_control.remote.controller import RemoteVersionController
 
 from pyrig_public.rig.configs.version_control.remote.settings import (
-    RepositorySettingsConfigFile,
+    RepositorySettingsConfigFile as PublicRepositorySettingsConfigFile,
 )
 
 
@@ -43,7 +46,7 @@ class ConfigureRepositoryConfigFile(BaseConfigureRepositoryConfigFile):
             `gh api` as a `PUT` request.
         """
         settings_path = RepositorySettingsConfigFile.I.path().as_posix()
-        key = RepositorySettingsConfigFile.I.fork_pr_contributor_approval_key()
+        key = PublicRepositorySettingsConfigFile.I.fork_pr_contributor_approval_key()
         endpoint = (
             f'"repos/${{{self.repo_variable()}}}'
             '/actions/permissions/fork-pr-contributor-approval"'
@@ -76,12 +79,12 @@ class ConfigureRepositoryConfigFile(BaseConfigureRepositoryConfigFile):
 }}"""
 
     def func_fork_pr_contributor_approval(self) -> str:
-        """Return `RepositorySettingsConfigFile.I.fork_pr_contributor_approval_key()`.
+        """Return the public settings config's fork-approval key.
 
         Named identically to the settings file key it reads, so both stay
         in sync automatically.
         """
-        return RepositorySettingsConfigFile.I.fork_pr_contributor_approval_key()
+        return PublicRepositorySettingsConfigFile.I.fork_pr_contributor_approval_key()
 
     def func_vulnerability_reporting(self) -> str:
         """Return `"vulnerability_reporting"`, the function name."""
